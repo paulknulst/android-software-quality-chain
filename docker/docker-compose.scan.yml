@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  sonarscanner:
+    image: sonarsource/sonar-scanner-cli
+    network_mode: "host"
+    env_file:
+      - .sq.env
+    command:
+      - -Dsonar.projectKey=YourAppName
+      - -Dsonar.exclusions=**/*.java
+      - -Dsonar.externalIssuesReportPaths=./output/result.json
+      - -Dsonar.kotlin.detekt.reportPaths=./app/build/reports/detekt.xml
+    volumes:
+      - "./../:/usr/src"
