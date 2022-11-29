@@ -2,7 +2,7 @@ version: "3"
 
 services:
   sonarqube:
-    image: sonarqube:community
+    image: sonarqube:9.6-community
     depends_on:
       sonarqube_db:
         condition: service_healthy
